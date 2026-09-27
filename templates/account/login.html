@@ -1,0 +1,79 @@
+{% load socialaccount %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Hangarin Login</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/bootstrap.min.css">
+
+</head>
+
+
+<body>
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h3 class="text-center">
+                        Hangarin
+                    </h3>
+
+                    <p class="text-center">
+                        Login to manage your tasks
+                    </p>
+
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+
+                            Login
+
+                        </button>
+
+                    </form>
+
+
+                    <hr>
+
+
+                    <a
+                        href="{% provider_login_url 'google' %}"
+                        class="btn btn-danger">
+
+                        Continue with Google
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

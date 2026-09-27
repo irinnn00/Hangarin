@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="content">
+
+    <div class="container-fluid">
+
+        <h4 class="page-title">
+            My Tasks
+        </h4>
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div class="card-title">
+                    Task List
+                </div>
+
+            </div>
+
+            <div class="card-body">
+
+                <form method="get">
+
+                    <input
+                        type="text"
+                        name="q"
+                        class="form-control mb-2"
+                        placeholder="Search tasks..."
+                        value="{{ request.GET.q }}"
+                    >
+
+                    <select
+                        name="sort_by"
+                        class="form-control mb-2">
+
+                        <option value="deadline">
+                            Deadline
+                        </option>
+
+                        <option value="title">
+                            Title
+                        </option>
+
+                        <option value="status">
+                            Status
+                        </option>
+
+                    </select>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Search / Sort
+
+                    </button>
+
+                </form>
+
+
+                <br>
+
+
+                <a
+                    href="{% url 'task-create' %}"
+                    class="btn btn-success">
+
+                    Add Task
+
+                </a>
+
+
+                <br>
+                <br>
+
+
+                <div class="table-responsive">
+
+                    <table class="table table-striped">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Deadline</th>
+                                <th>Priority</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for task in tasks %}
+
+                            <tr>
+
+                                <td>
+                                    {{ task.title }}
+                                </td>
+
+                                <td>
+                                    {{ task.status }}
+                                </td>
+
+                                <td>
+                                    {{ task.deadline }}
+                                </td>
+
+                                <td>
+                                    {{ task.priority }}
+                                </td>
+
+                                <td>
+                                    {{ task.category }}
+                                </td>
+
+                                <td>
+
+                                    <a
+                                        href="{% url 'task-update' task.pk %}"
+                                        class="btn btn-sm btn-primary">
+
+                                        Edit
+
+                                    </a>
+
+                                    <a
+                                        href="{% url 'task-delete' task.pk %}"
+                                        class="btn btn-sm btn-danger">
+
+                                        Delete
+
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                            {% empty %}
+
+                            <tr>
+
+                                <td colspan="6">
+                                    No tasks found.
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                {% include "includes/pagination.html" %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
