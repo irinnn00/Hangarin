@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-c!qghyg+_5_xpklf!^)x4x&63_i7vu2$1$igop%!coh$p!_ot2
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "Irinn.pythonanywhere.com"
+    "Irinn.pythonanywhere.com", "127.0.0.1"
 ]
 
 
@@ -135,7 +137,8 @@ STATICFILES_DIRS = (
     BASE_DIR / "static",
 )
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 # Email

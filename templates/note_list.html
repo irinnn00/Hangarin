@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Notes - Hangarin{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h4 class="page-title">Notes</h4>
+</div>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h4 class="card-title">Notes</h4>
+
+        <a href="{% url 'note-create' %}" class="btn btn-primary">
+            <i class="la la-plus"></i>
+            Add Note
+        </a>
+    </div>
+
+    <div class="card-body">
+
+        {% for note in notes %}
+
+        <div class="border-bottom p-3">
+
+            <div class="d-flex justify-content-between">
+
+                <strong>
+                    Task: {{ note.task.title }}
+                </strong>
+
+                <div>
+                    <a href="{% url 'note-update' note.pk %}"
+                       class="btn btn-sm btn-warning">
+                        <i class="la la-edit"></i>
+                        Change
+                    </a>
+
+                    <a href="{% url 'note-delete' note.pk %}"
+                       class="btn btn-sm btn-danger">
+                        <i class="la la-trash"></i>
+                        Delete
+                    </a>
+                </div>
+
+            </div>
+
+            <p class="mt-2 mb-0">
+                {{ note.content }}
+            </p>
+
+        </div>
+
+        {% empty %}
+
+        <p>No notes found.</p>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

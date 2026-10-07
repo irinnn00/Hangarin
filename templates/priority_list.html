@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Priorities - Hangarin{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h4 class="page-title">Priorities</h4>
+</div>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h4 class="card-title">Priorities</h4>
+
+        <a href="{% url 'priority-create' %}" class="btn btn-primary">
+            <i class="la la-plus"></i>
+            Add Priority
+        </a>
+    </div>
+
+    <div class="card-body">
+
+        {% for priority in priorities %}
+
+        <div class="d-flex justify-content-between align-items-center border-bottom p-3">
+
+            <span>{{ priority.name }}</span>
+
+            <div>
+                <a href="{% url 'priority-update' priority.pk %}"
+                   class="btn btn-sm btn-warning">
+                    <i class="la la-edit"></i>
+                    Change
+                </a>
+
+                <a href="{% url 'priority-delete' priority.pk %}"
+                   class="btn btn-sm btn-danger">
+                    <i class="la la-trash"></i>
+                    Delete
+                </a>
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <p>No priorities found.</p>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
