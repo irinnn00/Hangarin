@@ -113,20 +113,20 @@ class CategoryListView(LoginRequiredMixin, ListView):
 class CategoryCreateView(LoginRequiredMixin, CreateView):
     model = Category
     form_class = CategoryForm
-    template_name = "management_form.html"
+    template_name = "category_form.html"
     success_url = reverse_lazy("category-list")
 
 
 class CategoryUpdateView(LoginRequiredMixin, UpdateView):
     model = Category
     form_class = CategoryForm
-    template_name = "management_form.html"
+    template_name = "category_form.html"
     success_url = reverse_lazy("category-list")
 
 
 class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     model = Category
-    template_name = "management_confirm_delete.html"
+    template_name = "category_confirm_delete.html"
     success_url = reverse_lazy("category-list")
 
 
@@ -141,20 +141,20 @@ class PriorityListView(LoginRequiredMixin, ListView):
 class PriorityCreateView(LoginRequiredMixin, CreateView):
     model = Priority
     form_class = PriorityForm
-    template_name = "management_form.html"
+    template_name = "priority_form.html"
     success_url = reverse_lazy("priority-list")
 
 
 class PriorityUpdateView(LoginRequiredMixin, UpdateView):
     model = Priority
     form_class = PriorityForm
-    template_name = "management_form.html"
+    template_name = "priority_form.html"
     success_url = reverse_lazy("priority-list")
 
 
 class PriorityDeleteView(LoginRequiredMixin, DeleteView):
     model = Priority
-    template_name = "management_confirm_delete.html"
+    template_name = "priority_confirm_delete.html"
     success_url = reverse_lazy("priority-list")
 
 
@@ -171,20 +171,20 @@ class NoteListView(LoginRequiredMixin, ListView):
 class NoteCreateView(LoginRequiredMixin, CreateView):
     model = Note
     form_class = NoteForm
-    template_name = "management_form.html"
+    template_name = "note_form.html"
     success_url = reverse_lazy("note-list")
 
 
 class NoteUpdateView(LoginRequiredMixin, UpdateView):
     model = Note
     form_class = NoteForm
-    template_name = "management_form.html"
+    template_name = "note_form.html"
     success_url = reverse_lazy("note-list")
 
 
 class NoteDeleteView(LoginRequiredMixin, DeleteView):
     model = Note
-    template_name = "management_confirm_delete.html"
+    template_name = "note_confirm_delete.html"
     success_url = reverse_lazy("note-list")
 
 
@@ -198,20 +198,20 @@ class SubTaskListView(LoginRequiredMixin, ListView):
 class SubTaskCreateView(LoginRequiredMixin, CreateView):
     model = SubTask
     form_class = SubTaskForm
-    template_name = "management_form.html"
+    template_name = "subtask_form.html"
     success_url = reverse_lazy("subtask-list")
 
 
 class SubTaskUpdateView(LoginRequiredMixin, UpdateView):
     model = SubTask
     form_class = SubTaskForm
-    template_name = "management_form.html"
+    template_name = "subtask_form.html"
     success_url = reverse_lazy("subtask-list")
 
 
 class SubTaskDeleteView(LoginRequiredMixin, DeleteView):
     model = SubTask
-    template_name = "management_confirm_delete.html"
+    template_name = "task_confirm_delete.html"
     success_url = reverse_lazy("subtask-list")
 
 
